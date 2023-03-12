@@ -4,6 +4,7 @@ import torch
 import torch.nn.functional as F
 from tqdm import trange
 from mctsParallel import MCTSParallel
+from sys import stderr
 
 class AlphaZeroParallel:
     def __init__(self, model, optimizer, game, args):
@@ -80,6 +81,7 @@ class AlphaZeroParallel:
     
     def learn(self):
         for iteration in range(self.args['num_iterations']):
+            print(f"Learning: iteration {iteration}", file=stderr, flush=True)
             memory = []
             
             self.model.eval()
