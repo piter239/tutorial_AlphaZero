@@ -12,7 +12,7 @@ np.random.seed(0)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
 
-GAME = 'ConnectFour'
+GAME = 'TicTacToe'
 LOAD = True
 PARALLEL = True
 
@@ -52,7 +52,7 @@ if __name__ == '__main__':
             }
 
             game = TicTacToe()
-            model = ResNet(game, 4, 128, device)
+            model = ResNet(game, 4, 64, device)
             optimizer = Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
 
     if LOAD:
